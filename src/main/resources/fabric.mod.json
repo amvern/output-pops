@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "outputpops",
+	"version": "${version}",
+	"name": "Output Pops",
+	"description": "Adds pickup sounds to output slots.",
+	"authors": [
+		"amvern"
+	],
+	"contact": {
+		"homepage": "https://github.com/amvern/output-pops",
+		"sources": "https://github.com/amvern/output-pops"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/outputpops/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"github.amvern.outputpops.OutputPops"
+		]
+	},
+	"mixins": [
+		"outputpops.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
