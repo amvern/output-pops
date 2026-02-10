@@ -18,19 +18,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ResultSlotMixin {
 
 	@Inject(method = "onTake", at = @At("TAIL"))
-	private void outputpops$playResultSlotOnTakeSound(Player player, ItemStack stack, CallbackInfo ci) {
+	private void outputpops$playServerResultSlotSound(Player player, ItemStack stack, CallbackInfo ci) {
 		if (player instanceof ServerPlayer serverPlayer) {
 			serverPlayer.connection.send(
-					new ClientboundSoundPacket(
-							BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ITEM_PICKUP),
-							SoundSource.PLAYERS,
-							serverPlayer.getX(),
-							serverPlayer.getY(),
-							serverPlayer.getZ(),
-							0.2F,
-							(serverPlayer.getRandom().nextFloat() - serverPlayer.getRandom().nextFloat()) * 1.4F + 2.0F,
-							serverPlayer.getRandom().nextLong()
-					)
+				new ClientboundSoundPacket(
+					BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ITEM_PICKUP),
+					SoundSource.PLAYERS,
+					serverPlayer.getX(),
+					serverPlayer.getY(),
+					serverPlayer.getZ(),
+					0.2F,
+					(serverPlayer.getRandom().nextFloat() - serverPlayer.getRandom().nextFloat()) * 1.4F + 2.0F,
+					serverPlayer.getRandom().nextLong()
+				)
 			);
 		}
 	}
